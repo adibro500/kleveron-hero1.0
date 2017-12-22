@@ -1,0 +1,17 @@
+<div class="own_cntrl_list" id="own_cntrl_list">
+        <h4>
+            Select Control
+        </h4>
+        <ul [dragula]='"bag-one"' [dragulaModel]="group1" id="left">
+            <li *ngFor="let tb of group1"  class="cntrl_col">
+                <div class="col_div">
+                    <span class="col_img">
+                        <img src="/assets/images/crt-controls/{{tb.img}}.png" alt="">
+                    </span>
+                    <span class="col_lbl">{{tb.label}}</span>
+                </div>
+            </li>
+           
+            <div class="clearfix"></div>
+        </ul>
+    </div>

@@ -1,0 +1,265 @@
+<div class="wrapper"> 
+    <!-- [ngStyle]="font.getStyles()" -->
+    
+<div class="aside left">
+       
+        <a>
+    <div class="dash_logo">           
+            <img src="/assets/images/settings/logo_dashboard.png" alt="kleveron" />            
+    </div>
+</a>
+
+    <div class="aside_nav">
+        <div class="sidebar-menu">
+            <ul class="menu">
+                    
+                <li><a>
+                    <h3>
+                        <label>
+                            {{'Main' | translate:param}}
+                        </label>
+                    </h3>
+                    </a>
+                </li>
+                <li class="active">
+                    <a [routerLink]="['../parent/adminWidget']">
+                        <img src="/assets/images/settings/Dashboard.png" class="icon-img" />
+                        <span>
+                            <label>
+                                {{'Dashboard' | translate:param}}
+                            </label>
+                        </span>
+                    </a>
+
+                </li>
+                <li>
+                    <a class="sub_menu_toggle" href="javascript::void(0)">
+                        <img src="/assets/images/settings/Job-postings.png" class="icon-img" />
+                        <span>
+                            <label>
+                                {{'Admin' | translate:param}}
+                            </label>
+                        </span>
+                    </a>
+                    <ul class="inner">
+                        <li><a [routerLink]="['../parent/adminMaster']"><span class="input_icon"><img src="/assets/images/input-icon.png" /></span>admin-input.html</a></li>
+                        <li><a [routerLink]="['../parent/adminWidget']"><span class="input_icon"><img src="/assets/images/input-icon.png" /></span>admin-widget.html</a></li>
+                        <li><a [routerLink]="['../parent/adminListMaster/uk']"><span class="input_icon"><img src="/assets/images/input-icon.png" /></span>admin-grid-master.html</a></li>
+                        <li><a [routerLink]="['../parent/adminGridMaster/uk']"><span class="input_icon"><img src="/assets/images/input-icon.png" /></span>admin-list-master.html</a></li>
+                        <ng-container *ngFor="let d of data;let idx=index">
+                            <ng-container *ngIf="checks[idx] !== false && d!==null">
+                        <li><a [routerLink]="['../parent/render2/',idx]"><span class="input_icon"><img src="/assets/images/input-icon.png" /></span>{{d.FormName}}</a></li>
+                        </ng-container>
+                        </ng-container>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript::void(0)">
+                        <img src="/assets/images/settings/Job-postings.png" class="icon-img" />
+                        <span>
+                            <label>
+                                {{'My Team' | translate:param}}
+                            </label>
+                        </span>
+                    </a>
+
+                </li>
+                <li>
+                    <a class="sub_menu_toggle" href="javascript::void(0)">
+                        <img src="/assets/images/settings/Job-postings.png" class="icon-img" />
+                        <span>
+                            <label>
+                               {{'Job Postings' | translate:param}}
+                            </label>
+                        </span>
+                    </a>
+                    <ul class="inner">
+                        <li><a href="javascript::void(0)"><span class="input_icon"><img src="/assets/images/input-icon.png" /></span>sub-menu-1.html</a></li>
+                        <li><a href="javascript::void(0)"><span class="input_icon"><img src="/assets/images/input-icon.png" /></span>sub-menu-2.html</a></li>
+                        <li><a href="javascript::void(0)"><span class="input_icon"><img src="/assets/images/input-icon.png" /></span>sub-menu-3.html</a></li>
+                        <li><a href="javascript::void(0)"><span class="input_icon"><img src="/assets/images/input-icon.png" /></span>sub-menu-4.html</a></li>
+                        <li><a href="javascript::void(0)"><span class="input_icon"><img src="/assets/images/input-icon.png" /></span>sub-menu-5.html</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript::void(0)">
+                        <img src="/assets/images/settings/Job-postings.png" class="icon-img" />
+                        <span>
+                            <label>
+                                {{'Projects' | translate:param}}
+                            </label>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript::void(0)">
+                        <img src="/assets/images/settings/Job-postings.png" class="icon-img" />
+                        <span>
+                            <label>
+                                {{'Positions' | translate:param}}
+                            </label>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript::void(0)">
+                        <img src="/assets/images/settings/Job-postings.png" class="icon-img" />
+                        <span>
+                            <label>
+                                {{'Time & Expense' | translate:param}}
+                            </label>
+                        </span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="javascript::void(0)">
+                        <img src="/assets/images/settings/Job-postings.png" class="icon-img" />
+                        <span>
+                            <label>
+                                {{'Documents' | translate:param}}
+                            </label>
+                        </span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="javascript::void(0)">
+                        <img src="/assets/images/settings/Job-postings.png" class="icon-img" />
+                        <span>
+                            <label>
+                                {{'Settings' | translate:param}}
+                            </label>
+                        </span>
+                    </a>
+
+                </li>
+            </ul>
+          
+        </div>
+
+    </div>
+</div>
+
+<div class="content_wrap right">
+    <header class="frame_header">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="navbar-header">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+            <div class="col-xs-4 text_center mob_head">
+                <h1><label><input class="inp_res"style="border: 0;background: transparent !important;" type="text" [value]="temp_name"/></label></h1>
+            </div>
+            <div class="col-sm-4">
+                <div class="header-rightside">
+                    <ul class="list-inline header-top pull-right navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="/assets/images/settings/user.png" alt="" class="user-icon">
+                                <span><label translate>John Smith</label></span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInUpShort">
+                                <li>
+                                    <a href="#" class="view btn-sm"><label translate>View Profile</label></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="view btn-sm"><label translate>Logout</label></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="icon-info dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-language" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+                                <li>
+                                    <a (click)="changeLang('en')" class="view btn-sm"><label translate>English</label></a>
+                                </li>
+                                <li>
+                                    <a (click)="changeLang('hindi')" class="view btn-sm"><label translate>Hindi</label></a>
+                                </li>
+                                <li>
+                                        <a (click)="changeLang('guj')" class="view btn-sm"><label translate>Gujarati</label></a>
+                                    </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="icon-info dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu notify-drop animated fadeInUpShort">
+                                <div class="notify-drop-title">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6"><label translate>Hiren (<b>2</b>)</label></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href=""><i class="fa fa-dot-circle-o"></i></a></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="drop-content">
+                                    <li>
+                                        <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img src="/assets/images/on-boarding/notification-img.png" alt=""></div></div>
+                                        <div class="col-md-9 col-sm-9 col-xs-9 pd-l0">
+                                            <a href=""><label translate>Ahmet</label></a><p><label translate> Lorem ipsum sit dolor amet consilium. Saat önce</label></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                    <li>
+                                        <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img src="/assets/images/on-boarding/notification-img.png" alt=""></div></div>
+                                        <div class="col-md-9 col-sm-9 col-xs-9 pd-l0">
+                                            <a href=""><label translate>Ahmet</label></a><p><label translate> Lorem ipsum sit dolor amet consilium. Saat önce</label></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                    <li>
+                                        <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img src="/assets/images/on-boarding/notification-img.png" alt=""></div></div>
+                                        <div class="col-md-9 col-sm-9 col-xs-9 pd-l0">
+                                            <a href=""><label translate>Ahmet</label></a><p><label translate> Lorem ipsum sit dolor amet consilium. Saat önce</label></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                    <li>
+                                        <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img src="/assets/images/on-boarding/notification-img.png" alt=""></div></div>
+                                        <div class="col-md-9 col-sm-9 col-xs-9 pd-l0">
+                                            <a href=""><label translate>Ahmet</label></a><p><label translate> Lorem ipsum sit dolor amet consilium. Saat önce</label></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                </div>
+                                <div class="notify-drop-footer text-center">
+                                    <a href=""><i class="fa fa-eye"></i> <label translate>View All</label></a>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                   
+                </div>
+            </div>
+        </div>
+    </header>
+    <right-menu-toggle>            
+    </right-menu-toggle>
+    <div class="container-fluid bgwhite">
+            <!-- <div class="box-container" fxLayout="column">
+                    
+            <div class="action-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex>
+                    <div class="action-button" fxLayout="column" fxLayoutAlign="center center" fxFlex [(fontPicker)]="font" [fpWidth]="'auto'" [fpPosition]="'bottom'" [fpPositionRelativeToArrow]="false" [fpPresetLabel]="'Preset fonts'" [fpPresetFonts]="presetFonts" [fpSizeSelect]="sizeSelect" [fpStyleSelect]="styleSelect">
+                            <button>Change Font</button>  {{font.family}} {{font.style | FontStyles}} {{font.size}}
+                           </div>
+                    </div> 
+            </div> 
+             <font-pick></font-pick> -->
+        <router-outlet>                
+        </router-outlet>
+        
+    </div>
+    <footer class="text_center">
+        <h4> <label><input class="inp_res text_center" style="border: 0;background: transparent !important;width:100%" type="text" [(ngModel)]="foot_name"/></label></h4>
+    </footer>
+    <div class="clearfix">
+    </div>
+</div>
+<div class="clearfix"></div>
+</div>

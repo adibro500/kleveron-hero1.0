@@ -118,9 +118,6 @@ export class AdminListMasterComponent implements OnInit {
 
 
 
-        $('.navbar-header').click(function () {
-            $('.wrapper').toggleClass('hidemenu');
-        });
 
         if ($(window).width() < 767) {
             $(document).click(function (e) {

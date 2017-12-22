@@ -93,6 +93,8 @@ import { AdminMaster } from './admin2/admin-input.component';
 import { AdminService } from './admin2/admin-input.service';
 import { RenderAdmin2 } from './admin2/renderAdmin.component';
 import { DateTimePickerModule } from 'ngx-datetime-picker';
+import { ParentComponent } from './parent-main.component';
+import { SelectControlComponent } from './select-control/select-control.component';
 
 
 const appRoutes: Routes = [
@@ -104,9 +106,38 @@ const appRoutes: Routes = [
   { path: 'render/:index', component: RenderInputMaster },
   { path: 'renderinput', component: RenderInput },
   { path: 'adminPanel', component: AdminPanel },
-  { path: 'render2/:id', component: RenderAdmin2 },
+
+  {
+    path: 'parent', component: ParentComponent,
+    children: [
+      { path: 'adminMaster', component: AdminMaster },
+      { path: 'adminWidget', component: AdminWidgetMaster },
+      { path: 'createPageMenu/:uname', component: createPage1Component },
+      { path: 'renderCreate/:index', component: RenderCreateComponent },
+      { path: 'adminGridMaster/:uname', component: AdminGridMasterComponent },
+
+      {
+        path: 'configs', component: ConfigMenuComponent,
+
+        children: [
+          { path: 'config1', component: ConfigTab1Component },
+          { path: 'config2', component: ConfigTab2Component },
+        ]
+
+      },
+      { path: 'dashboard/:uname', component: DashboardComponent },
+      { path: 'dashtab/:uname', component: DashTabComponent },
+      { path: 'settings/:uname', component: SettingsComponent },
+      { path: 'settingstab2/:uname', component: TabTwoComponent },
+      { path: 'settingstab3/:uname', component: TabThreeComponent },
+      { path: 'render2/:id', component: RenderAdmin2 },
+      { path: 'adminListMaster/:uname', component: AdminListMasterComponent },
+      { path: 'adminPanel', component: AdminPanel },
 
 
+
+    ]
+  },
   { path: 'colorPick', component: ColorPickComponent },
   { path: 'adminInput', component: AdminInput },
   { path: 'List', component: ListComponent },
@@ -125,9 +156,7 @@ const appRoutes: Routes = [
   },
 
   { path: 'adminListMaster/:uname', component: AdminListMasterComponent },
-  { path: 'adminGridMaster/:uname', component: AdminGridMasterComponent },
   { path: 'dashboard/:uname', component: DashRecComponent },
-  { path: 'adminWidget', component: AdminWidgetMaster },
 
 
   { path: 'adminInputMaster/:uname', component: AdminInputMaster },
@@ -175,6 +204,7 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     RenderList,
+    SelectControlComponent,
     ColumnComponent,
     AdminWidgetMaster,
     ListComponent,
@@ -199,7 +229,7 @@ export function createTranslateLoader(http: HttpClient) {
     CreatePageMenuComponent,
     ConfigTab2Component,
     AdminMaster,
-
+    ParentComponent,
     EscapeHtmlPipe,
     AdminInputMaster,
     AppCheck,
@@ -225,7 +255,7 @@ export function createTranslateLoader(http: HttpClient) {
     SelectOptionComponent,
     SelectTextComponent,
     RenderCreateComponent,
-    RenderAdmin2
+    RenderAdmin2,
   ],
   imports: [
     DateTimePickerModule,

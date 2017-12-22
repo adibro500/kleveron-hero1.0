@@ -34,9 +34,7 @@ export class DashTabComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
 
-        $('.navbar-header').click(function () {
-            $('.wrapper').toggleClass('hidemenu');
-        });
+
 
         if ($(window).width() < 767) {
             $(document).click(function (e) {

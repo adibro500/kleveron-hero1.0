@@ -28,6 +28,15 @@ export class AdminService {
 
     }
 
+    putFormData(inputdata) {
+
+        console.log("inputdata", inputdata);
+        return this.http.post("http://localhost:5000/save/admin2", inputdata, options).map(res => res.text()).subscribe(data => console.log(data));
+
+
+    }
+
+
 
 
 

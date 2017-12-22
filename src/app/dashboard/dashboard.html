@@ -1,148 +1,9 @@
 
 <div>
     <div class="wrapper">
-        <div class="aside left">
-            <div class="dash_logo">
-                <a href="#">
-                    <img id="logo_img" src="/assets/images/settings/logo_dashboard.png" alt="kleveron" /></a>
-            </div>
-            <div class="aside_nav">
-                <div class="sidebar-menu">
-                    <ul class="menu">
-                        <li>
-                            <h3>
-                                <label>
-                                    {{ 'Main' | translate:param }} </label></h3>
-                        </li>
-                        <li class="active"><a routerLink="/settingsmenu/settings">
-                            <img src="/assets/images/settings/personal.png" class="icon-img" />
-                            <span>
-                                <label>
-                                    {{ 'Personal' | translate:param }}  </label></span> </a></li>
-                        <li><a [routerLink]='["/adminInputMaster",uname]'>
-                            <img src="/assets/images/settings/organisation.png" class="icon-img" />
-                            <span>
-                                <label>
-                                    {{ 'Organisation' | translate:param }}  </label></span> </a></li>
-                        <li><a href="javascript::">
-                            <img src="/assets/images/settings/appearance.png" class="icon-img" />
-                            <span>
-                                <label>
-                                    {{ 'Appearance' | translate:param }}   </label></span> </a></li>
-                        <li><a href="javascript::">
-                            <img src="/assets/images/settings/apps-nd-plugin.png" class="icon-img" />
-                            <span>
-                                <label>
-                                    {{ 'Apps and Plugins' | translate:param }} </label></span>
-                            <!--<span class="fa fa-angle-right" style="float: right; position: relative;"></span>-->
-                        </a>
-                            <!--<ul id="menu-academico-sub">
-                                <li id="menu-academico-avaliacoes"><a href="404.html">404</a></li>
-                                <li id="menu-academico-boletim"><a href="blank.html">Blank</a></li>
-                            </ul>-->
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="content_wrap right">
-            <header class="frame_header">
-
-                <div class="row">
-                    <div class="col-xs-4">
-                        <div class="navbar-header">
-                            <i class="fa fa-bars"></i>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 text_center mob_head">
-                        <h1><label translate>OnBoarding</label></h1>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="header-rightside">
-                            <ul class="list-inline header-top pull-right navbar-right">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="/assets/images/settings/user.png" alt="" class="user-icon">
-                                        <span><label translate>John Smith</label></span>
-                                        <b class="caret"></b>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#" class="view btn-sm"><label translate>View Profile</label></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="view btn-sm"><label translate>Logout</label></a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="icon-info dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-language" aria-hidden="true"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li>
-                                            <a (click)="changeLang('en')" class="view btn-sm"><label translate>English</label></a>
-                                        </li>
-                                        <li>
-                                            <a (click)="changeLang('hindi')" class="view btn-sm"><label translate>Hindi</label></a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="icon-info dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-bell" aria-hidden="true"></i>
-                                    </a>
-                                    <ul class="dropdown-menu notify-drop">
-                                        <div class="notify-drop-title">
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6 col-xs-6"><label translate>Hiren (<b>2</b>)</label></div>
-                                                <div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href=""><i class="fa fa-dot-circle-o"></i></a></div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </div>
-                                        <div class="drop-content">
-                                            <li>
-                                                <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img src="http://placehold.it/45x45" alt=""></div></div>
-                                                <div class="col-md-9 col-sm-9 col-xs-9 pd-l0">
-                                                    <a href=""><label translate>Ahmet</label></a><p><label translate> Lorem ipsum sit dolor amet consilium. Saat önce</label></p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                            <li>
-                                                <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img src="http://placehold.it/45x45" alt=""></div></div>
-                                                <div class="col-md-9 col-sm-9 col-xs-9 pd-l0">
-                                                    <a href=""><label translate>Ahmet</label></a><p><label translate> Lorem ipsum sit dolor amet consilium. Saat önce</label></p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                            <li>
-                                                <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img src="http://placehold.it/45x45" alt=""></div></div>
-                                                <div class="col-md-9 col-sm-9 col-xs-9 pd-l0">
-                                                    <a href=""><label translate>Ahmet</label></a><p><label translate> Lorem ipsum sit dolor amet consilium. Saat önce</label></p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                            <li>
-                                                <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img src="http://placehold.it/45x45" alt=""></div></div>
-                                                <div class="col-md-9 col-sm-9 col-xs-9 pd-l0">
-                                                    <a href=""><label translate>Ahmet</label></a><p><label translate> Lorem ipsum sit dolor amet consilium. Saat önce</label></p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                        </div>
-                                        <div class="notify-drop-footer text-center">
-                                            <a href=""><i class="fa fa-eye"></i> <label translate>View All</label></a>
-                                        </div>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </header>
-            <div class="container-fluid bgwhite">
-                <div class="row page_header cmn_info_wrap">
+ 
+  
+                <div class="row page_header">
                     <div class="col-xs-6">
                         <h2 class="head">
                             <label translate>
@@ -152,18 +13,18 @@
                         <img src="/assets/images/on-boarding/onbrd-icon.png" class="icon-img pull-right" />
                     </div>
                 </div>
-                <div class="row page_content">
+                <div class="row page_content cmn_info_wrap">
                     <div class="onboarding_section">
                             <div class="detail_wrapper">
                                 <!---------------------------tabs ---------------------------- -->
                                 <div id="detail_tabs" class="detail_nav_menu">
                                     <ul>
-                                        <li><a [routerLink]='["/dash/dashboard",uname]'>
+                                        <li><a [routerLink]='["/parent/dashboard",uname]'>
                                             <label>
                                                 <div class="tab_no">
                                                     1</div>
                                                 <span translate>Company Details</span></label></a></li>
-                                        <li><a [routerLink]='["/dash/dashtab",uname]'>
+                                        <li><a [routerLink]='["/parent/dashtab",uname]'>
                                             <label>
                                                 <div class="tab_no">
                                                     2</div>
@@ -334,11 +195,9 @@
                             </div>
                     </div>
                 </div>
-            </div>
             <!-- <footer class="text_center">
                 <h4> <label translate>© 2017 Kleveron. A venture of <a href="#"> SRKay </a> Consulting Group LLP. All Rights Reserved.</label></h4>
             </footer> -->
-        </div>
         <div class="clearfix">
         </div>
     </div>

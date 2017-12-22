@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Renderer, Input } from '@angular/core';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { DragulaService } from 'ng2-dragula/components/dragula.provider';
 import { ElementRef } from '@angular/core/src/linker/element_ref';
 import { AdminService } from './admin-input.service';
 import { ActivatedRoute } from '@angular/router';
+import { IsMobileService } from 'ngx-datetime-picker/services/isMobile.service';
+import { DateService } from 'ngx-datetime-picker/services/date.service';
+import { DatePipe } from '@angular/common';
 declare var $: any;
 declare var perfectScrollbar: any;
 declare var height: any;
@@ -78,11 +81,16 @@ export class RenderAdmin2 implements OnInit {
     temp2: any;
     data: any;
     index;
+
+    filesToUpload: Array<File>;
+
+
     constructor(dragulaService: DragulaService, private route: ActivatedRoute, private adminService: AdminService) {
 
         this.options = {
             revertOnSpill: true
         };
+        this.filesToUpload = [];
 
         // dragulaService.out.subscribe((value: any[]) => {
         //     const [bagName, e, el] = value;
@@ -109,6 +117,42 @@ export class RenderAdmin2 implements OnInit {
 
 
     }
+
+    upload() {
+        this.makeFileRequest("http://localhost:5000/upload", [], this.filesToUpload).then((result) => {
+            console.log(result);
+        }, (error) => {
+            console.error(error);
+        });
+    }
+
+    fileChangeEvent(fileInput: any) {
+        this.filesToUpload = <Array<File>>fileInput.target.files;
+    }
+
+    makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
+        return new Promise((resolve, reject) => {
+            var formData: any = new FormData();
+            var xhr = new XMLHttpRequest();
+            for (var i = 0; i < files.length; i++) {
+                formData.append("uploads[]", files[i], files[i].name);
+            }
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        resolve(JSON.parse(xhr.response));
+                    } else {
+                        reject(xhr.response);
+                    }
+                }
+            }
+            xhr.open("POST", url, true);
+            xhr.send(formData);
+        });
+    }
+
+
+
 
     texts: any[] = [];
 
@@ -205,7 +249,11 @@ export class RenderAdmin2 implements OnInit {
         console.log(this.Textboxes);
     }
 
+    defValues;
+    getDef(i) {
+        return this.Textboxes[i].values[0];
 
+    }
 
     // onDrop(args) {
     //     let [e, el, source, target] = args;
@@ -245,6 +293,8 @@ export class RenderAdmin2 implements OnInit {
         // $(function () {
         //     $('#datetimepicker1').datetimepicker();
         // });
+
+
 
         $(function () {
             $('#datetimepicker2').datetimepicker({
@@ -353,48 +403,132 @@ export class RenderAdmin2 implements OnInit {
 
 
     }
-
+    is_submit: boolean;
     jsonObj: any[] = [];
     selectedValues: any[] = [];
     dateValues: any[] = [];
     timeValues: any[] = [];
     checkValues: any[] = [];
     selectValues: any[] = [];
+    selectValues2: any[] = [];
     sendData() {
+
+
+        this.is_submit = true;
+
 
         let bjson = {};
 
         for (var i = 0; i < this.Textboxes.length; i++) {
+            var k = 0;
             alert("inside " + this.Textboxes[i].type);
-
-
-
             alert("more in " + i);
-            if ((this.Textboxes[i].type == 'textbox') && (this.Textboxes[i].order == i)) {
+
+            if (this.Textboxes[i].type === 'textbox' && this.Textboxes[i].values[0] !== "") {
                 alert("text");
-                bjson[this.Textboxes[i].placeholder] = this.Textboxes[i].values[0];
-                this.jsonObj.push(bjson);
-            } else if ((this.Textboxes[i].type == 'select') && (this.Textboxes[i].order == i)) {
+
+
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder + "_" + i] = this.Textboxes[i].values[0];
+
+            } else if (this.Textboxes[i].type === 'select' && this.selectValues[i] !== "") {
                 alert("select");
-                bjson[this.Textboxes[i].values[0]] = this.Textboxes[i].values[1];
-                this.jsonObj.push(bjson);
+                bjson["control_id"] = this.Textboxes[i].id;
+
+                bjson[this.Textboxes[i].values[0] + "-" + i] = this.selectValues[i];
+
+            } else if (this.Textboxes[i].type === 'password' && this.Textboxes[i].values[0] !== "") {
+                alert("pass");
+                bjson["control_id"] = this.Textboxes[i].id;
+
+                bjson[this.Textboxes[i].placeholder + "_" + i] = this.Textboxes[i].values[0];
+
+
+            } else if (this.Textboxes[i].type === 'checkbox' && this.Textboxes[i].boolvals[0] != undefined) {
+                alert("checkbox");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].lnames[0] + "_" + i] = this.Textboxes[i].boolvals[0];
+
+
+            } else if (this.Textboxes[i].type === 'radio' && this.selectRadio != undefined) {
+                alert("radio");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].lnames[0] + "_" + i] = this.selectRadio;
+
+
+            } else if (this.Textboxes[i].type === 'switch' && this.Textboxes[i].values[0] !== "") {
+                alert("switch");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder + "_" + i] = this.Textboxes[i].values[0];
+
+
+
+            } else if (this.Textboxes[i].type === 'datepicker' && this.dateValues[i] !== undefined) {
+                alert("datepicker");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder] = this.dateValues[i];
+
+            } else if (this.Textboxes[i].type === 'timepicker' && this.timeValues[i] !== undefined) {
+                alert("timepicker");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder] = this.timeValues[i];
+
+            } else if (this.Textboxes[i].type === 'search' && this.Textboxes[i].values[0] !== "") {
+                alert("search");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder] = this.Textboxes[i].values[0];
+
+            } else if (this.Textboxes[i].type === 'fbook' && this.Textboxes[i].values[0] !== "") {
+                alert("fbook");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder] = this.Textboxes[i].values[0];
+
+            } else if (this.Textboxes[i].type === 'linkedin' && this.Textboxes[i].values[0] !== "") {
+                alert("linkedin");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder] = this.Textboxes[i].values[0];
+
+            } else if (this.Textboxes[i].type === 'gplus' && this.Textboxes[i].values[0] !== "") {
+                alert("gplus");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder] = this.Textboxes[i].values[0];
+
+            } else if (this.Textboxes[i].type === 'twitter' && this.Textboxes[i].values[0] !== "") {
+                alert("twitter");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder] = this.Textboxes[i].values[0];
             }
-            else
-                bjson = {};
+            else if (this.Textboxes[i].type === 'select_text' && this.Textboxes[i].values[0] !== "" && this.Textboxes[i].boolvals[0] !== undefined && this.Textboxes[i].boolvals[0] != false) {
+                alert("select_text");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder] = this.Textboxes[i].values[0];
+                bjson["active for " + this.Textboxes[i].placeholder] = this.Textboxes[i].boolvals[0];
+            } else if (this.Textboxes[i].type === 'select_options' && this.Textboxes[i].values[0] !== "" && this.Textboxes[i].boolvals[0] !== undefined && this.Textboxes[i].boolvals[0] != false) {
+                alert("select_opts");
+                bjson["control_id"] = this.Textboxes[i].id;
+                bjson[this.Textboxes[i].placeholder] = this.Textboxes[i].values[0];
+                bjson["active for " + this.Textboxes[i].placeholder] = this.Textboxes[i].boolvals[0];
+            }
 
         }
+        this.jsonObj.push(bjson);
+
+        let Obj = {
+            "formValues": this.jsonObj
+        }
+        this.adminService.putFormData(Obj);
+        alert("Data sent successfully");
+
+
         console.log(this.jsonObj);
-
-
-
-
     }
-
-
-
 
     log(e: any) {
         console.log(e.type, e);
+    }
+
+    selectfnValues(idx) {
+
 
 
 

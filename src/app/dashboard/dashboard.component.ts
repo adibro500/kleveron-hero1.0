@@ -65,9 +65,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     ngOnInit() {
 
-        $('.navbar-header').click(function () {
-            $('.wrapper').toggleClass('hidemenu');
-        });
 
         if ($(window).width() < 767) {
             $(document).click(function (e) {

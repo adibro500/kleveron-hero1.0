@@ -904,7 +904,7 @@ h2.head {
             z-index: 2;
             font-size: 16px;
             font-weight: 500;
-            text-align: left;
+            text-align: center;
             border-bottom: 1px solid #ced0da;
             text-transform: uppercase;
             text-decoration: none;
@@ -942,10 +942,10 @@ h2.head {
     }
 
     .menu .icon-img {
-        margin-bottom: 0px;
+        margin-bottom: 10px;
         width: 44px;
-        display: inine-block;
-        padding-right:10px;
+        display: block;
+
     }
 
 .menu {
@@ -2084,13 +2084,10 @@ h6.lbl_name {
     font-weight: 400;
 }
 
-.srch_widget {
+.all_widget {
     margin-top: -80px;
     padding: 0 40px;
-    position: absolute;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    
 }
 
 .setting_widget {
@@ -3194,6 +3191,139 @@ full_clndr {
 .mtb35{
     margin-bottom: 35px;
 }
+
+
+
+
+/*
+my addition
+*/
+
+inp_res
+{
+    border: 0;
+    background: transparent !important;
+}
+
+/*
+my addition
+*/
+
+/* add control by own */
+.add_own_cntrl
+{
+    text-align:right;
+}
+.add_own_cntrl span
+{
+    display:inline-block;
+    vertical-align:middle;
+}
+    .add_own_cntrl span.add_control_btn {
+        padding-right:15px;
+    }
+
+.own_cntrl_list {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    border-right: 1px solid #2cb5f8;
+    
+    transition:opacity 1s;
+    opacity: 0;
+   
+}
+    .own_cntrl_list .col_div {
+        text-align: left;
+    }
+
+    .own_cntrl_list .col_img {
+        padding-bottom: 0;
+        padding-right: 10px;
+    }
+
+    .own_cntrl_list .col_lbl {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .own_cntrl_list .cntrl_col {
+        list-style: none;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 10px;
+        border-bottom: 1px solid #f0f0f0;
+        cursor: pointer;
+    }
+
+    .own_cntrl_list h4 {
+        text-align: center;
+        font-size: 20px;
+        padding: 27px 0;
+       
+        background-color: #2cb5f8;
+        color: #fff;
+    }
+
+    .own_cntrl_list a {
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        transition: 0.3s;
+        background-color: #0c4866;
+        width: 70px;
+        height: 60px;
+        border-radius: 50px;
+        text-align: left;
+        padding-top: 28px;
+        padding-left: 12px;
+    }
+
+    .own_cntrl_list .closebtn {
+        position: absolute;
+        top: -30px;
+        right: -41px;
+        font-size: 20px;
+        margin-left: 0;
+        display: inline-block;
+        color: #fff;
+        font-weight: 500;
+    }
+
+.con_hdr {
+    position: fixed;
+    width: 270px;
+    overflow: hidden;
+}
+.all_con_wrap
+{
+    top:155px;
+    position:relative;
+}
+.lbl_select_opt .custom_chk_bx {
+    padding: 25px 50px;
+    border-bottom: 2px solid #eaeaea;
+    background-color: #f9fafc;
+    border-right: 1px solid #2cb5f8;
+   
+}
+.lbl_select_opt .chk_bx {
+    padding-right: 0;
+}
+    .lbl_select_opt .chk_bx label {
+        color: #000;
+        font-size: 18px;
+    }
+.lbl_select_opt .custom_chk_bx [type="checkbox"]:not(:checked) + label, .lbl_select_opt .custom_chk_bx [type="checkbox"]:checked + label {
+    padding-left: 40px;
+}
+
+/* end add control by own */
 
 
 

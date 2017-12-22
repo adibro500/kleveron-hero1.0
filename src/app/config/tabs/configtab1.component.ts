@@ -60,9 +60,7 @@ export class ConfigTab1Component implements OnInit, DoCheck {
 
 
     ngOnInit() {
-        $('.navbar-header').click(function () {
-            $('.wrapper').toggleClass('hidemenu');
-        });
+
 
         if ($(window).width() < 767) {
             $(document).click(function (e) {

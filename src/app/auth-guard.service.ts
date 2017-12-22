@@ -25,7 +25,7 @@ export class AuthGuardService {
         //     this.logged = res.json();
         // });
         return this.http
-            .post('http://localhost:5000/api/login', logindata, options)
+            .post('https://kleveron-backend.herokuapp.com/api/login', logindata, options)
             .map((res: Response) => {
                 console.log("1", res.json());
                 this.isLogged = res.json();

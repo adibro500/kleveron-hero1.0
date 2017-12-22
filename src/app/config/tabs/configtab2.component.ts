@@ -57,9 +57,7 @@ export class ConfigTab2Component {
 
     ngOnInit() {
 
-        $('.navbar-header').click(function () {
-            $('.wrapper').toggleClass('hidemenu');
-        });
+
 
         if ($(window).width() < 767) {
             $(document).click(function (e) {

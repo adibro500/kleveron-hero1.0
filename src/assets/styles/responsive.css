@@ -509,8 +509,14 @@
         font-weight: 400;
     }
     /*  end all widgets */
+/* add control by own */
+.own_cntrl_list h4 {
+    
+    font-size: 20px;
+    padding-top: 21px;
+    padding-bottom: 22px;
 
-
+}
 }
 
 @media screen and (max-width: 1280px) {

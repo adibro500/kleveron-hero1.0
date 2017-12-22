@@ -37,9 +37,6 @@ export class AdminGridMasterComponent implements OnInit {
     }
     ngOnInit(): void {
 
-        $('.navbar-header').click(function () {
-            $('.wrapper').toggleClass('hidemenu');
-        });
 
         if ($(window).width() < 767) {
             $(document).click(function (e) {
@@ -119,8 +116,6 @@ export class AdminGridMasterComponent implements OnInit {
                 $('.hide_nxt').hide();
             }
         });
-
-
     }
 
 
@@ -141,9 +136,5 @@ export class AdminGridMasterComponent implements OnInit {
     delay(elem, src, delayTime) {
         window.setTimeout(function () { elem.setAttribute("src", src); }, delayTime);
     }
-
-
-
-
 
 }

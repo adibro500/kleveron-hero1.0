@@ -65,9 +65,7 @@ export class AdminPanel implements OnInit {
         //     $(".loader").fadeOut(2000);
         // })
 
-        $('.navbar-header').click(function () {
-            $('.wrapper').toggleClass('hidemenu');
-        });
+
 
         if ($(window).width() < 767) {
             $(document).click(function (e) {
@@ -169,23 +167,23 @@ export class AdminPanel implements OnInit {
 
         // side sub-menu js
 
-        $(document).ready(function () {
-            $(".inner").css("display", "none");
-            $('.sub_menu_toggle').click(function (e) {
-                e.preventDefault();
+        // $(document).ready(function () {
+        //     $(".inner").css("display", "none");
+        //     $('.sub_menu_toggle').click(function (e) {
+        //         e.preventDefault();
 
-                var $this = $(this);
-                if ($this.next().hasClass('visible')) {
-                    $this.next().removeClass('visible');
-                    $this.next().slideUp(350);
-                } else {
-                    $this.parent().parent().find('li .inner').removeClass('show');
-                    $this.parent().parent().find('li .inner').slideUp(350);
-                    $this.next().toggleClass('visible');
-                    $this.next().slideToggle(350);
-                }
-            });
-        });
+        //         var $this = $(this);
+        //         if ($this.next().hasClass('visible')) {
+        //             $this.next().removeClass('visible');
+        //             $this.next().slideUp(350);
+        //         } else {
+        //             $this.parent().parent().find('li .inner').removeClass('show');
+        //             $this.parent().parent().find('li .inner').slideUp(350);
+        //             $this.next().toggleClass('visible');
+        //             $this.next().slideToggle(350);
+        //         }
+        //     });
+        // });
 
     }
 

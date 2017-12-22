@@ -175,17 +175,17 @@ export class AdminWidgetMaster implements OnInit, DoCheck {
         // }).owlCarousel('refresh');
         console.log("str", this.str);
 
-        $('.navbar-header').click(function () {
-            $('.wrapper').toggleClass('hidemenu');
-        });
+        // $('.navbar-header').click(function () {
+        //     $('.wrapper').toggleClass('hidemenu');
+        // });
 
-        if ($(window).width() < 767) {
-            $(document).click(function (e) {
-                if (!$(e.target).closest('.navbar-header, .aside').length) {
-                    $('.wrapper').removeClass('hidemenu');
-                }
-            })
-        }
+        // if ($(window).width() < 767) {
+        //     $(document).click(function (e) {
+        //         if (!$(e.target).closest('.navbar-header, .aside').length) {
+        //             $('.wrapper').removeClass('hidemenu');
+        //         }
+        //     })
+        // }
 
 
         // $(".edit_icon:eq(3)").on('click', () => {
@@ -193,8 +193,8 @@ export class AdminWidgetMaster implements OnInit, DoCheck {
         //     this.fSize = this.fSize++;
         // });
 
-        $('.aside_nav').perfectScrollbar();
-        $('.drop-content').perfectScrollbar();
+        // $('.aside_nav').perfectScrollbar();
+        // $('.drop-content').perfectScrollbar();
 
         $(window).load(function () {
             var H = $(window).height();
@@ -224,6 +224,7 @@ export class AdminWidgetMaster implements OnInit, DoCheck {
                 }
             });
         });
+
 
         $(function () {
             $("#list_view_tabs").tabs();
@@ -318,23 +319,7 @@ export class AdminWidgetMaster implements OnInit, DoCheck {
 
         // side sub-menu js
 
-        $(document).ready(function () {
-            $(".inner").css("display", "none");
-            $('.sub_menu_toggle').click(function (e) {
-                e.preventDefault();
 
-                var $this = $(this);
-                if ($this.next().hasClass('visible')) {
-                    $this.next().removeClass('visible');
-                    $this.next().slideUp(350);
-                } else {
-                    $this.parent().parent().find('li .inner').removeClass('show');
-                    $this.parent().parent().find('li .inner').slideUp(350);
-                    $this.next().toggleClass('visible');
-                    $this.next().slideToggle(350);
-                }
-            });
-        });
     }
 
 
