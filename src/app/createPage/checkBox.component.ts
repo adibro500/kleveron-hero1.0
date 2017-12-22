@@ -6,7 +6,7 @@ declare var height: any;
 declare var tabs: any;
 @Component({
     selector: 'checkBox',
-    templateUrl: './checkBox.component.html',
+    templateUrl: './checkbox.component.html',
     providers: [Control2],
 })
 
