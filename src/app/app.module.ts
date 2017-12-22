@@ -26,7 +26,7 @@ import { CreatePageMenuComponent } from "./createPage/createPage.component";
 import { ModalModule, TimepickerModule } from 'ngx-bootstrap';
 import { CssClassForDivsService } from "./createPage/createPage.service";
 import { CalendarModule } from 'primeng/primeng';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RlTagInputModule } from 'angular2-tag-input';
 
 import { OwlModule } from 'ngx-owl-carousel';
@@ -280,7 +280,7 @@ export function createTranslateLoader(http: HttpClient) {
     MaterializeModule,
     DynamicModule.withComponents([TextboxComponent]),
     NguiDatetimePickerModule,
-    NgbModule.forRoot(),
+    //NgbModule.forRoot(),
     FormsModule,
     CalendarModule,
     ModalModule.forRoot(),
