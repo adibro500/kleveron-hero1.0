@@ -414,7 +414,7 @@ export class AdminMaster implements OnInit {
         this.Textboxes[this.idx].lids = labelid.split(",");
         this.Textboxes[this.idx].lnames = labelnm.split(",");
         this.Textboxes[this.idx].lclasses = labelclass.split(",");
-        $("#input_label_Modal").hide();
+        //  $("#input_label_Modal").hide();
 
     }
 
@@ -447,7 +447,7 @@ export class AdminMaster implements OnInit {
             this.Textboxes[this.idx].validation.val_msg = ctvmsg;
         }
 
-        $("#input_control_Modal").hide();
+        // $("#input_control_Modal").hide();
 
 
     }
